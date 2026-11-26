@@ -2,7 +2,8 @@
 
 多平台视频**命令行**下载器。粘贴分享链接，回车即下载；一次只处理一条，默认保存到系统「下载」文件夹。
 
-桌面端请查看 [`main`](https://github.com/zesheng-x/ClipFetch/tree/main) 分支。
+桌面端请查看 [`main`](https://github.com/zesheng-x/ClipFetch/tree/main) 分支。  
+若需要 Windows 图形界面安装包，请到 [Releases](https://github.com/zesheng-x/ClipFetch/releases/latest) 下载 `ClipFetch-Setup-*.exe`。
 
 ## 简介
 
