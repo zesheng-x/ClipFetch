@@ -1,0 +1,14 @@
+# 统一文本换行符，避免 Windows 下 git add 产生 CRLF 警告
+* text=auto eol=lf
+
+# Windows 安装脚本保持 CRLF
+*.nsh text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 二进制资源
+*.png binary
+*.ico binary
+*.exe binary
+*.dll binary
+*.zip binary

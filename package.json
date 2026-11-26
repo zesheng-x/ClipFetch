@@ -1,0 +1,120 @@
+{
+  "name": "clipfetch",
+  "version": "1.2.0",
+  "private": true,
+  "description": "ClipFetch - multi-platform video downloader",
+  "author": "陈泽晟",
+  "license": "GPL-3.0-only",
+  "main": "./out/main/index.js",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "dist": "pnpm run icon:make && pnpm run build && node scripts/dist-win.mjs",
+    "dist:dir": "pnpm run icon:make && pnpm run build && electron-builder --win dir",
+    "vendor:fetch": "node scripts/fetch-vendor.mjs",
+    "icon:make": "node scripts/make-icon.mjs",
+    "cli": "tsx src/cli/index.ts",
+    "start": "tsx src/cli/index.ts"
+  },
+  "dependencies": {
+    "undici": "^7.30.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "electron": "^39.2.4",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^5.0.0",
+    "png-to-ico": "^3.0.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.1.17",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  },
+  "build": {
+    "appId": "com.zesheng.videodownloader",
+    "productName": "泽晟视频下载器",
+    "executableName": "ZeshengDownloader",
+    "copyright": "Copyright (C) 陈泽晟",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "icon": "build/icon.ico",
+    "files": [
+      "out/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "build/icon.ico",
+        "to": "icon.ico"
+      },
+      {
+        "from": "build/icon-ui.png",
+        "to": "icon-ui.png"
+      },
+      {
+        "from": "resources/vendor/cctv-dl",
+        "to": "vendor/cctv-dl",
+        "filter": [
+          "**/*",
+          "!**/vc_redist*.exe"
+        ]
+      },
+      {
+        "from": "resources/vendor/yt-dlp",
+        "to": "vendor/yt-dlp",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "resources/vendor/ffmpeg",
+        "to": "vendor/ffmpeg",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "ZeshengDownloader-Setup-${version}.${ext}",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "泽晟视频下载器",
+      "uninstallDisplayName": "泽晟视频下载器",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "installerLanguages": [
+        "zh_CN"
+      ],
+      "language": "2052",
+      "perMachine": false,
+      "differentialPackage": false,
+      "deleteAppDataOnUninstall": false,
+      "include": "build/installer.nsh"
+    }
+  }
+}
