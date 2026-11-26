@@ -94,7 +94,7 @@
           ]
         }
       ],
-      "artifactName": "ZeshengDownloader-Setup-${version}.${ext}",
+      "artifactName": "ClipFetch-Setup-${version}.${ext}",
       "signExecutable": false
     },
     "nsis": {

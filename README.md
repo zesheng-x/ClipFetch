@@ -9,6 +9,16 @@
 
 当前文档对应 **Desktop（`main`）**。命令行版请切换到 [`cli`](https://github.com/zesheng-x/ClipFetch/tree/cli) 分支查看。
 
+## 下载安装包
+
+无需自行编译，可直接从 GitHub Releases 下载 Windows 安装包：
+
+- **最新版本：** https://github.com/zesheng-x/ClipFetch/releases/latest  
+- 下载文件：`ClipFetch-Setup-x.x.x.exe`（Windows 10 / 11 x64）  
+- 双击安装即可使用
+
+历史版本与更新说明见：[Releases](https://github.com/zesheng-x/ClipFetch/releases)
+
 ## 简介
 
 ClipFetch Desktop 是面向 Windows 的多平台视频下载器，支持栏目/合集解析、下载队列、清晰度选择与代理。界面遵循 Windows 11 Fluent Design。
@@ -64,7 +74,7 @@ pnpm typecheck
 pnpm dist
 ```
 
-安装包输出至 `release/`（如 `ZeshengDownloader-Setup-1.2.0.exe`）。
+安装包输出至 `release/`（如 `ClipFetch-Setup-1.2.0.exe`），也可上传到 GitHub Releases 供他人直接下载。
 
 ## 代理说明
 
